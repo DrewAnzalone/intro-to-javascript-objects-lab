@@ -337,6 +337,8 @@ game.catchPokemon = function (pokemonName) {
   this.items[1].quantity -= 1;
   let pokemonObj = pokemon.find((mon) => mon.name === pokemonName);
   this.party.push(pokemonObj); // I know it says "at any time" but this reduces repeated lines of code and allows for a logically succinct selection of who is sent to collection. This would be possible in a real game.
+  // The alternative is checking if party size == 6, sorting, popping lowest hp, pushing the higher hp between the popped pokemon and pokemonObj, and then pushing the lower hp to collection
+  // it's just a lot more steps for the same behavior.
 
   if (this.party.length > 6) {
     sortParty();
